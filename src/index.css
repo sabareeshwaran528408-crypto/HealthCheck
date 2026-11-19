@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --hc-primary: #315fbd;
+  --hc-primary-hover: #244e9f;
+  --hc-accent: #4f46e5;
+  --hc-bg: #f4f7fc;
+  --hc-surface: #ffffff;
+  --hc-surface-muted: #edf3fb;
+  --hc-primary-soft: #e8effb;
+  --hc-ink: #17243a;
+  --hc-muted: #61718a;
+  --hc-border: #dce5f0;
+  --hc-sidebar: #172844;
+}
+
+@theme {
+  --font-manrope: "Manrope", sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+
+  --color-brand-primary: var(--hc-primary);
+  --color-brand-primary-light: var(--hc-primary-hover);
+  --color-brand-secondary: var(--hc-accent);
+  --color-brand-tertiary: #315fbd;
+
+  --color-surface-bg: var(--hc-bg);
+  --color-surface-card: var(--hc-surface);
+  --color-surface-dim: var(--hc-border);
+  --color-surface-container: var(--hc-surface-muted);
+  --color-surface-container-high: var(--hc-primary-soft);
+
+  --color-text-main: var(--hc-ink);
+  --color-text-muted: var(--hc-muted);
+  --color-border-subtle: var(--hc-border);
+}
+
+html,
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--hc-bg);
+  color: var(--hc-ink);
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-manrope {
+  font-family: "Manrope", sans-serif;
+}
+
+.font-jakarta {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbar for clean dashboard aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hc-border);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hc-muted);
+}
+
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:not(:disabled),
+a {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 3px solid rgb(49 95 189 / 42%);
+  outline-offset: 3px;
+}
+
+.animate-fade-in {
+  animation: page-enter 360ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.ui-card {
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.ui-button {
+  transition:
+    transform 160ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.ui-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.checklist-item {
+  animation: item-enter 260ms cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+.checklist-item:nth-child(2) {
+  animation-delay: 20ms;
+}
+
+.checklist-item:nth-child(3) {
+  animation-delay: 40ms;
+}
+
+.checklist-item:nth-child(4) {
+  animation-delay: 60ms;
+}
+
+.checklist-item:nth-child(5) {
+  animation-delay: 80ms;
+}
+
+.checklist-item:nth-child(6) {
+  animation-delay: 100ms;
+}
+
+.checklist-item__check {
+  transform: scale(0.92);
+  transition: transform 180ms cubic-bezier(0.2, 0.7, 0.2, 1), background-color 180ms ease;
+}
+
+.checklist-item__check.is-checked {
+  animation: check-complete 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.recommendation-card {
+  animation: item-enter 320ms cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+.recommendation-card:nth-child(2) {
+  animation-delay: 30ms;
+}
+
+.recommendation-card:nth-child(3) {
+  animation-delay: 60ms;
+}
+
+.recommendation-card:nth-child(4) {
+  animation-delay: 90ms;
+}
+
+.recommendation-card:nth-child(5) {
+  animation-delay: 120ms;
+}
+
+.recommendation-card:nth-child(6) {
+  animation-delay: 150ms;
+}
+
+.recommendation-card:nth-child(7) {
+  animation-delay: 180ms;
+}
+
+.recommendation-card:nth-child(8) {
+  animation-delay: 210ms;
+}
+
+.category-content-enter {
+  animation: item-enter 220ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  transform-origin: top;
+}
+
+.notification-popover {
+  animation: item-enter 180ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  transform-origin: top right;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ui-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--hc-border);
+    box-shadow: 0 14px 32px -22px rgb(34 63 107 / 28%);
+  }
+
+  .ui-button:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes item-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes check-complete {
+  0% {
+    transform: scale(0.86);
+  }
+
+  65% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
