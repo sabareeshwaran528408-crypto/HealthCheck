@@ -35,3 +35,8 @@ backups/
 
 # Environment files
 backend/.env
+# Backup files
+*.bak
+*.bak2
+.backups/
+backups/
